@@ -24,7 +24,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  static const platform =
+  static final platform =
       MethodChannel('com.example.youtube_configuration_app/accessibility');
   bool _isAccessibilityEnabled = false;
 

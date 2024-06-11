@@ -30,6 +30,10 @@ class MainActivity: FlutterActivity() {
     private fun isAccessibilityServiceEnabled(): Boolean {
         val am = getSystemService(Context.ACCESSIBILITY_SERVICE) as AccessibilityManager
         val enabledServices = Settings.Secure.getString(contentResolver, Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES)
+        if (enabledServices.isNullOrEmpty()) {
+            Log.d("MainActivity", "No accessibility services enabled")
+            return false
+        }
         val colonSplitter = TextUtils.SimpleStringSplitter(':')
         colonSplitter.setString(enabledServices)
         while (colonSplitter.hasNext()) {
